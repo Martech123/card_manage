@@ -34,7 +34,6 @@ def display_card():
     print("显示名片")
     if len(card_list) == 0:
         print("名片库无纪录")
-        #return
     for name in ["name", "phone", "qq", "email"]:
         print(name, end="\t\t")
     print(" ")

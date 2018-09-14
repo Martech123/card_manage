@@ -9,7 +9,6 @@ while True:
             card_tool.now_card()
         if user_sel == "2":
             card_tool.display_card()
-            return
         if user_sel == "3":
             card_tool.search_card()
     elif user_sel == "0":
