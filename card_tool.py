@@ -34,6 +34,7 @@ def display_card():
     print("显示名片")
     if len(card_list) == 0:
         print("名片库无纪录")
+        return
     for name in ["name", "phone", "qq", "email"]:
         print(name, end="\t\t")
     print(" ")
@@ -47,3 +48,35 @@ def search_card():
     print("-" * 50)
     
     print("查询名片")
+    name = input("请输入需要搜索的姓名:")
+    for card in card_list:
+        if card["name"] == name:
+
+            for name in ["name", "phone", "qq", "email"]:
+                print(name, end="\t\t")
+            print(" ")
+            print("=" * 50)
+            print("%s\t\t%s\t\t%s\t\t%s\t\t" %(card["name"],
+                                               card["phone"],
+                                               card["qq"],
+                                               card["email"]))
+            edit_card(card) 
+            break
+    else:
+        print("没有找到")
+
+
+def edit_card(card):
+    print("针对搜索到的名片,你想执行的操作是:1.修改 2.删除 0.退出")
+    act_sel = input("请输入")
+
+    if act_sel == "1":
+        print("修改名片") 
+        card["name"] = input("请输入修改的名字:") 
+        card["phone"] = input("请输入修改的电话:") 
+        card["qq"] = input("请输入修改的qq:") 
+        card["email"] = input("请输入修改的email:") 
+    if act_sel == "2":
+        print("删除名片")
+        card_list.remove(card)
+    return
